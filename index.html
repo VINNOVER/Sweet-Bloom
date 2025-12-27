@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Bloom Cosmetics</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .logo-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f9c5d1 0%, #fce2e9 50%, #f9f0f2 100%);
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sweet-pink {
+            background-color: #ffd1dc;
+        }
+        
+        .sweet-lavender {
+            background-color: #e6e6fa;
+        }
+        
+        .sweet-mint {
+            background-color: #d4f1f4;
+        }
+        
+        .sweet-peach {
+            background-color: #ffd8b1;
+        }
+        
+        .btn-primary {
+            background-color: #ff85a2;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #ff6b8b;
+            transform: scale(1.05);
+        }
+        
+        .cart-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-heart text-pink-400 text-2xl mr-2"></i>
+                <h1 class="logo-font text-3xl text-pink-500 font-bold">Sweet Bloom</h1>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-pink-500 font-medium">Home</a>
+                <a href="#products" class="text-gray-700 hover:text-pink-500 font-medium">Products</a>
+                <a href="#about" class="text-gray-700 hover:text-pink-500 font-medium">About</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-pink-500 font-medium">Testimonials</a>
+                <a href="#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="cart-btn" class="relative">
+                    <i class="fas fa-shopping-cart text-gray-700 text-xl hover:text-pink-500"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">0</span>
+                </button>
+                <button class="md:hidden" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-gray-700 text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-gray-700 hover:text-pink-500 font-medium">Home</a>
+                <a href="#products" class="text-gray-700 hover:text-pink-500 font-medium">Products</a>
+                <a href="#about" class="text-gray-700 hover:text-pink-500 font-medium">About</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-pink-500 font-medium">Testimonials</a>
+                <a href="#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient py-16 md:py-24 fade-in">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Radiant Beauty,<br><span class="text-pink-500">Sweetly Delivered</span></h2>
+                <p class="text-gray-600 text-lg mb-8">Discover our collection of sweet-scented, gentle cosmetics made with natural ingredients that make you feel as sweet as you look.</p>
+                <a href="#products" class="btn-primary text-white font-medium py-3 px-8 rounded-full inline-block shadow-lg">Shop Now</a>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="sweet-pink w-64 h-64 rounded-full flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80" alt="Cosmetics" class="w-56 h-56 object-cover rounded-full shadow-xl">
+                    </div>
+                    <div class="sweet-lavender absolute -bottom-4 -right-4 w-32 h-32 rounded-full z-10"></div>
+                    <div class="sweet-mint absolute -top-4 -left-4 w-24 h-24 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Sweet Collection</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card sweet-peach rounded-2xl p-6 shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-40 h-40 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80" alt="Lip Gloss" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Berry Kiss Lip Gloss</h3>
+                    <p class="text-gray-600 mb-4">Sweet berry-flavored gloss with a hint of shimmer for luscious lips.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600">$18.99</span>
+                        <button class="add-to-cart bg-pink-500 text-white py-2 px-6 rounded-full hover:bg-pink-600 transition" data-id="1" data-name="Berry Kiss Lip Gloss" data-price="18.99">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card sweet-lavender rounded-2xl p-6 shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-40 h-40 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80" alt="Blush" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Peachy Cheek Blush</h3>
+                    <p class="text-gray-600 mb-4">Soft peach blush for a natural, rosy glow that lasts all day.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600">$24.99</span>
+                        <button class="add-to-cart bg-pink-500 text-white py-2 px-6 rounded-full hover:bg-pink-600 transition" data-id="2" data-name="Peachy Cheek Blush" data-price="24.99">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card sweet-mint rounded-2xl p-6 shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-40 h-40 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1563178578-1c3e6829d6c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80" alt="Eyeshadow" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Vanilla Dream Eyeshadow</h3>
+                    <p class="text-gray-600 mb-4">Creamy vanilla-scented eyeshadow palette with soft, blendable colors.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600">$32.99</span>
+                        <button class="add-to-cart bg-pink-500 text-white py-2 px-6 rounded-full hover:bg-pink-600 transition" data-id="3" data-name="Vanilla Dream Eyeshadow" data-price="32.99">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card sweet-pink rounded-2xl p-6 shadow-md">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-40 h-40 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80" alt="Perfume" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sugar Bloom Perfume</h3>
+                    <p class="text-gray-600 mb-4">A sweet floral fragrance with notes of sugar, jasmine, and fresh berries.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-bold text-pink-600">$45.99</span>
+                        <button class="add-to-cart bg-pink-500 text-white py-2 px-6 rounded-full hover:bg-pink-600 transition" data-id="4" data-name="Sugar Bloom Perfume" data-price="45.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 hero-gradient">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="relative">
+                        <div class="sweet-lavender w-80 h-80 rounded-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80" alt="About Us" class="w-full h-full object-cover">
+                        </div>
+                        <div class="sweet-peach absolute -bottom-6 -right-6 w-40 h-40 rounded-full z-10"></div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Sweet Story</h2>
+                    <p class="text-gray-600 mb-6">Sweet Bloom Cosmetics was born from a simple idea: beauty products should make you feel as sweet as they make you look. Founded in 2018, we combine natural ingredients with delightful scents to create cosmetics that nourish your skin while making you smile.</p>
+                    <p class="text-gray-600 mb-8">All our products are cruelty-free, made with sustainably sourced ingredients, and packaged in eco-friendly materials. We believe in spreading sweetness, both inside and out!</p>
+                    <div class="flex items-center">
+                        <div class="mr-8">
+                            <i class="fas fa-leaf text-green-500 text-3xl mb-2"></i>
+                            <p class="font-bold text-gray-800">Natural</p>
+                        </div>
+                        <div class="mr-8">
+                            <i class="fas fa-heart text-pink-500 text-3xl mb-2"></i>
+                            <p class="font-bold text-gray-800">Cruelty-Free</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-recycle text-blue-500 text-3xl mb-2"></i>
+                            <p class="font-bold text-gray-800">Eco-Friendly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Sweet Words From Our Customers</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-pink-50 rounded-2xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full sweet-pink overflow-hidden mr-4">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b786d4d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Jessica M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The Berry Kiss Lip Gloss is my absolute favorite! It smells amazing and keeps my lips moisturized all day. I get compliments every time I wear it!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-purple-50 rounded-2xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full sweet-lavender overflow-hidden mr-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Alexandra P.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Sweet Bloom's products are not only beautiful but also ethical. I love supporting a brand that cares about animals and the environment. The packaging is adorable too!"</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-blue-50 rounded-2xl p-6 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full sweet-mint overflow-hidden mr-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Customer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sophie L.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The Sugar Bloom Perfume is heavenly! It's the perfect sweet scent without being overpowering. I've already bought two bottles and will definitely repurchase."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-heart text-pink-400 text-2xl mr-2"></i>
+                        <h2 class="logo-font text-3xl font-bold">Sweet Bloom</h2>
+                    </div>
+                    <p class="text-gray-300">Making the world sweeter, one product at a time.</p>
+                </div>
+                
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="text-gray-300 mb-2"><i class="fas fa-envelope mr-2"></i> hello@sweetbloom.com</p>
+                    <p class="text-gray-300 mb-2"><i class="fas fa-phone mr-2"></i> (123) 456-7890</p>
+                    <p class="text-gray-300"><i class="fas fa-map-marker-alt mr-2"></i> 123 Sweet Street, Blossom City</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-pink-500 w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-pink-500 w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-pink-500 w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="bg-pink-500 w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                            <i class="fab fa-pinterest-p"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Sweet Bloom Cosmetics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[80vh] overflow-hidden">
+            <div class="bg-pink-500 text-white p-6 flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Your Sweet Cart</h3>
+                <button id="close-cart" class="text-white text-2xl">&times;</button>
+            </div>
+            
+            <div class="p-6 overflow-y-auto max-h-[50vh]">
+                <div id="cart-items" class="mb-6">
+                    <!-- Cart items will be added here dynamically -->
+                    <p id="empty-cart-message" class="text-gray-500 text-center py-4">Your cart is empty. Add some sweet products!</p>
+                </div>
+                
+                <div class="border-t pt-4">
+                    <div class="flex justify-between text-lg font-bold mb-4">
+                        <span>Total:</span>
+                        <span id="cart-total">$0.00</span>
+                    </div>
+                    <button id="checkout-btn" class="w-full bg-pink-500 text-white py-3 rounded-full font-bold hover:bg-pink-600 transition">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            
+            // Change icon
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Shopping cart functionality
+        let cart = [];
+        
+        // Add to cart buttons
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartCount = document.getElementById('cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const cartBtn = document.getElementById('cart-btn');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCartBtn = document.getElementById('close-cart');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                const name = this.getAttribute('data-name');
+                const price = parseFloat(this.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                // Update cart UI
+                updateCartUI();
+                
+                // Add pulse animation to cart button
+                cartBtn.classList.add('cart-pulse');
+                setTimeout(() => {
+                    cartBtn.classList.remove('cart-pulse');
+                }, 2000);
+                
+                // Show success message
+                showNotification(`${name} added to cart!`);
+            });
+        });
+        
+        // Update cart UI
+        function updateCartUI() {
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart modal
+            if (cart.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                cartItemsContainer.innerHTML = '';
+            } else {
+                emptyCartMessage.classList.add('hidden');
+                
+                let cartHTML = '';
+                let total = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    cartHTML += `
+                        <div class="flex justify-between items-center mb-4 pb-4 border-b">
+                            <div>
+                                <h4 class="font-bold text-gray-800">${item.name}</h4>
+                                <p class="text-gray-600">$${item.price.toFixed(2)} × ${item.quantity}</p>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="font-bold text-gray-800 mr-4">$${itemTotal.toFixed(2)}</span>
+                                <button class="remove-item text-pink-500 hover:text-pink-700" data-id="${item.id}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItemsContainer.innerHTML = cartHTML;
+                cartTotal.textContent = `$${total.toFixed(2)}`;
+                
+                // Add event listeners to remove buttons
+                const removeButtons = document.querySelectorAll('.remove-item');
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = this.getAttribute('data-id');
+                        removeFromCart(id);
+                    });
+                });
+            }
+        }
+        
+        // Remove item from cart
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartUI();
+            showNotification('Item removed from cart');
+        }
+        
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-pink-500 text-white py-3 px-6 rounded-full shadow-lg z-50 fade-in';
+            notification.textContent = message;
+            
+            // Add to body
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+        
+        // Cart modal controls
+        cartBtn.addEventListener('click', () => {
+            cartModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+        
+        closeCartBtn.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        });
+        
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!');
+                return;
+            }
+            
+            showNotification('Thank you for your order! Your sweet products are on their way.');
+            cart = [];
+            updateCartUI();
+            cartModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close cart when clicking outside
+        cartModal.addEventListener('click', (e) => {
+            if (e.target === cartModal) {
+                cartModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                    const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+                    
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuIcon.classList.remove('fa-times');
+                        mobileMenuIcon.classList.add('fa-bars');
+                    }
+                    
+                    // Scroll to element
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
